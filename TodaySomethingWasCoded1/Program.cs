@@ -5,10 +5,15 @@ Console.WriteLine("Please input a word or series of words: ");
 
 String ?userInput = Console.ReadLine();
 
-int userInputTotalCount = userInput.Count();
+if (userInput == null)
+{
+    Console.WriteLine("Please enter a string of some kind, this program will not continue if nothing is entered.");
+} else {
+    int userInputTotalCount = userInput.Count();
+    int userInputSpaces = userInput.Count(Char.IsWhiteSpace);
 
-int userInputSpaces = userInput.Count(Char.IsWhiteSpace);
+    userInputTotalCount -= userInputSpaces;
 
-userInputTotalCount -= userInputSpaces;
+    Console.WriteLine(userInputTotalCount.ToString());
+}
 
-Console.WriteLine(userInputTotalCount.ToString());
